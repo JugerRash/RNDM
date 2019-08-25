@@ -8,23 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		3571C35F2312608400074E26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3571C35E2312608400074E26 /* AppDelegate.swift */; };
-		3571C3612312608400074E26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3571C3602312608400074E26 /* ViewController.swift */; };
+		3571C3612312608400074E26 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3571C3602312608400074E26 /* MainVC.swift */; };
 		3571C3642312608400074E26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3571C3622312608400074E26 /* Main.storyboard */; };
 		3571C3662312608800074E26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3571C3652312608800074E26 /* Assets.xcassets */; };
 		3571C3692312608800074E26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3571C3672312608800074E26 /* LaunchScreen.storyboard */; };
 		3571C371231266E800074E26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3571C370231266E800074E26 /* GoogleService-Info.plist */; };
+		3571C3782312782700074E26 /* AddThoughtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3571C3772312782700074E26 /* AddThoughtVC.swift */; };
+		3571C37A2312964900074E26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3571C3792312964900074E26 /* Constants.swift */; };
 		D5F3A8AF2044C5599882D316 /* Pods_RNDM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB9DCCBF87B3FF09FD94E01 /* Pods_RNDM.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3571C35B2312608400074E26 /* RNDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3571C35E2312608400074E26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3571C3602312608400074E26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3571C3602312608400074E26 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		3571C3632312608400074E26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3571C3652312608800074E26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3571C3682312608800074E26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3571C36A2312608800074E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3571C370231266E800074E26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3571C3772312782700074E26 /* AddThoughtVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThoughtVC.swift; sourceTree = "<group>"; };
+		3571C3792312964900074E26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		578D42ED02E521596F710D60 /* Pods-RNDM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNDM.debug.xcconfig"; path = "Target Support Files/Pods-RNDM/Pods-RNDM.debug.xcconfig"; sourceTree = "<group>"; };
 		A00E893EE10EDAD4AB4F2F40 /* Pods-RNDM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNDM.release.xcconfig"; path = "Target Support Files/Pods-RNDM/Pods-RNDM.release.xcconfig"; sourceTree = "<group>"; };
 		BCB9DCCBF87B3FF09FD94E01 /* Pods_RNDM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RNDM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +67,7 @@
 		3571C35D2312608400074E26 /* RNDM */ = {
 			isa = PBXGroup;
 			children = (
-				3571C37623126BE700074E26 /* Constant */,
+				3571C37623126BE700074E26 /* Utilities */,
 				3571C37523126BDC00074E26 /* Extensions */,
 				3571C37423126BD300074E26 /* Modal */,
 				3571C37323126BC800074E26 /* Views */,
@@ -81,7 +85,8 @@
 		3571C37223126BB500074E26 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3571C3602312608400074E26 /* ViewController.swift */,
+				3571C3602312608400074E26 /* MainVC.swift */,
+				3571C3772312782700074E26 /* AddThoughtVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -107,11 +112,12 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3571C37623126BE700074E26 /* Constant */ = {
+		3571C37623126BE700074E26 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3571C3792312964900074E26 /* Constants.swift */,
 			);
-			path = Constant;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		862AB9834E4176CFDB89B5B1 /* Frameworks */ = {
@@ -247,8 +253,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3571C3612312608400074E26 /* ViewController.swift in Sources */,
+				3571C3782312782700074E26 /* AddThoughtVC.swift in Sources */,
+				3571C3612312608400074E26 /* MainVC.swift in Sources */,
 				3571C35F2312608400074E26 /* AppDelegate.swift in Sources */,
+				3571C37A2312964900074E26 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

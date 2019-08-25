@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wDM-RS-1BP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,19 +10,149 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--RNDM-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RNDM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="RNDM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="S77-FT-cN9"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="RNDM" id="dFP-vq-9ja">
+                        <barButtonItem key="rightBarButtonItem" image="addThoughtIcon" id="Gga-2x-7lG">
+                            <color key="tintColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="tl7-0I-S5Y" kind="show" id="xpK-MV-oUg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="980" y="26.53673163418291"/>
+        </scene>
+        <!--Add ThoughtVC-->
+        <scene sceneID="AHp-Mz-eSB">
+            <objects>
+                <viewController id="tl7-0I-S5Y" customClass="AddThoughtVC" customModule="RNDM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h1i-EX-SZo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="FKW-0Y-LDF">
+                                <rect key="frame" x="20" y="12" width="335" height="33"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="dDE-Xt-emb"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="funny"/>
+                                    <segment title="serious"/>
+                                    <segment title="crazy"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="categorySegmentChanged:" destination="tl7-0I-S5Y" eventType="valueChanged" id="zEf-Je-hpH"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tP9-xS-Q7C">
+                                <rect key="frame" x="20" y="56" width="335" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="5vZ-ka-XVS"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="My random thought..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cPZ-Gd-WnD">
+                                <rect key="frame" x="20" y="96" width="335" height="100"/>
+                                <color key="backgroundColor" white="0.67000000000000004" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="p58-Gn-GRn"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jU9-TL-fNE">
+                                <rect key="frame" x="147.5" y="206" width="80" height="38"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="QZ2-Lo-vH5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="postBtnPressed:" destination="tl7-0I-S5Y" eventType="touchUpInside" id="wt6-gW-T9f"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Asj-y4-Kcl" firstAttribute="trailing" secondItem="FKW-0Y-LDF" secondAttribute="trailing" constant="20" id="0OJ-aP-8VX"/>
+                            <constraint firstItem="FKW-0Y-LDF" firstAttribute="leading" secondItem="Asj-y4-Kcl" secondAttribute="leading" constant="20" id="64H-wM-q2r"/>
+                            <constraint firstItem="cPZ-Gd-WnD" firstAttribute="top" secondItem="tP9-xS-Q7C" secondAttribute="bottom" constant="10" id="7Rr-zf-4hg"/>
+                            <constraint firstItem="tP9-xS-Q7C" firstAttribute="leading" secondItem="Asj-y4-Kcl" secondAttribute="leading" constant="20" id="7ci-wE-85F"/>
+                            <constraint firstItem="jU9-TL-fNE" firstAttribute="top" secondItem="cPZ-Gd-WnD" secondAttribute="bottom" constant="10" id="RtX-Jc-gi6"/>
+                            <constraint firstItem="FKW-0Y-LDF" firstAttribute="top" secondItem="Asj-y4-Kcl" secondAttribute="top" constant="12" id="VxI-GX-0aD"/>
+                            <constraint firstItem="jU9-TL-fNE" firstAttribute="centerX" secondItem="h1i-EX-SZo" secondAttribute="centerX" id="iPz-Er-u0N"/>
+                            <constraint firstItem="tP9-xS-Q7C" firstAttribute="top" secondItem="FKW-0Y-LDF" secondAttribute="bottom" constant="12" id="j6x-mR-Ehz"/>
+                            <constraint firstItem="Asj-y4-Kcl" firstAttribute="trailing" secondItem="cPZ-Gd-WnD" secondAttribute="trailing" constant="20" id="jBC-OF-H9Z"/>
+                            <constraint firstItem="cPZ-Gd-WnD" firstAttribute="leading" secondItem="Asj-y4-Kcl" secondAttribute="leading" constant="20" id="mOV-6j-D9o"/>
+                            <constraint firstItem="Asj-y4-Kcl" firstAttribute="trailing" secondItem="tP9-xS-Q7C" secondAttribute="trailing" constant="20" id="yrj-3n-Wmv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Asj-y4-Kcl"/>
+                    </view>
+                    <connections>
+                        <outlet property="categorySegment" destination="FKW-0Y-LDF" id="N0N-0c-XQF"/>
+                        <outlet property="postBtn" destination="jU9-TL-fNE" id="JcJ-4C-chO"/>
+                        <outlet property="thoughtTxtView" destination="cPZ-Gd-WnD" id="cZl-tA-rsj"/>
+                        <outlet property="usernameTxtField" destination="tP9-xS-Q7C" id="5PG-34-o6E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DWC-pR-wiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1769" y="27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GQW-0B-1Dh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wDM-RS-1BP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="4eX-Mo-ggO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.21176470588235294" green="0.21176470588235294" blue="0.21176470588235294" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.96078431372549022" green="0.50980392156862742" blue="0.047058823529411764" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                            <color key="textShadowColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <color key="textShadowColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6kn-EO-Q8L"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9qF-sz-xYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-84" y="27"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="addThoughtIcon" width="21" height="24"/>
+    </resources>
 </document>
