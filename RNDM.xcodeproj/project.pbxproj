@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,8 +63,12 @@
 		3571C35D2312608400074E26 /* RNDM */ = {
 			isa = PBXGroup;
 			children = (
+				3571C37623126BE700074E26 /* Constant */,
+				3571C37523126BDC00074E26 /* Extensions */,
+				3571C37423126BD300074E26 /* Modal */,
+				3571C37323126BC800074E26 /* Views */,
+				3571C37223126BB500074E26 /* Controllers */,
 				3571C35E2312608400074E26 /* AppDelegate.swift */,
-				3571C3602312608400074E26 /* ViewController.swift */,
 				3571C3622312608400074E26 /* Main.storyboard */,
 				3571C3652312608800074E26 /* Assets.xcassets */,
 				3571C3672312608800074E26 /* LaunchScreen.storyboard */,
@@ -72,6 +76,42 @@
 				3571C370231266E800074E26 /* GoogleService-Info.plist */,
 			);
 			path = RNDM;
+			sourceTree = "<group>";
+		};
+		3571C37223126BB500074E26 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3571C3602312608400074E26 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3571C37323126BC800074E26 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3571C37423126BD300074E26 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		3571C37523126BDC00074E26 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3571C37623126BE700074E26 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 		862AB9834E4176CFDB89B5B1 /* Frameworks */ = {
@@ -88,7 +128,6 @@
 				578D42ED02E521596F710D60 /* Pods-RNDM.debug.xcconfig */,
 				A00E893EE10EDAD4AB4F2F40 /* Pods-RNDM.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
