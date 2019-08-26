@@ -15,6 +15,9 @@
 		3571C371231266E800074E26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3571C370231266E800074E26 /* GoogleService-Info.plist */; };
 		3571C3782312782700074E26 /* AddThoughtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3571C3772312782700074E26 /* AddThoughtVC.swift */; };
 		3571C37A2312964900074E26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3571C3792312964900074E26 /* Constants.swift */; };
+		35F4B7F72313CDE200AAA1AC /* ThoughtCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F4B7F62313CDE200AAA1AC /* ThoughtCell.swift */; };
+		35F4B7F92313D1AF00AAA1AC /* Thought.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F4B7F82313D1AF00AAA1AC /* Thought.swift */; };
+		35F4B7FC2313DEB000AAA1AC /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F4B7FB2313DEB000AAA1AC /* DataService.swift */; };
 		D5F3A8AF2044C5599882D316 /* Pods_RNDM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB9DCCBF87B3FF09FD94E01 /* Pods_RNDM.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +32,9 @@
 		3571C370231266E800074E26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3571C3772312782700074E26 /* AddThoughtVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThoughtVC.swift; sourceTree = "<group>"; };
 		3571C3792312964900074E26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		35F4B7F62313CDE200AAA1AC /* ThoughtCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtCell.swift; sourceTree = "<group>"; };
+		35F4B7F82313D1AF00AAA1AC /* Thought.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thought.swift; sourceTree = "<group>"; };
+		35F4B7FB2313DEB000AAA1AC /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		578D42ED02E521596F710D60 /* Pods-RNDM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNDM.debug.xcconfig"; path = "Target Support Files/Pods-RNDM/Pods-RNDM.debug.xcconfig"; sourceTree = "<group>"; };
 		A00E893EE10EDAD4AB4F2F40 /* Pods-RNDM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNDM.release.xcconfig"; path = "Target Support Files/Pods-RNDM/Pods-RNDM.release.xcconfig"; sourceTree = "<group>"; };
 		BCB9DCCBF87B3FF09FD94E01 /* Pods_RNDM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RNDM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +73,7 @@
 		3571C35D2312608400074E26 /* RNDM */ = {
 			isa = PBXGroup;
 			children = (
+				35F4B7FA2313DE9600AAA1AC /* Services */,
 				3571C37623126BE700074E26 /* Utilities */,
 				3571C37523126BDC00074E26 /* Extensions */,
 				3571C37423126BD300074E26 /* Modal */,
@@ -94,6 +101,7 @@
 		3571C37323126BC800074E26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				35F4B7F62313CDE200AAA1AC /* ThoughtCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -101,6 +109,7 @@
 		3571C37423126BD300074E26 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				35F4B7F82313D1AF00AAA1AC /* Thought.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -118,6 +127,14 @@
 				3571C3792312964900074E26 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		35F4B7FA2313DE9600AAA1AC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				35F4B7FB2313DEB000AAA1AC /* DataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		862AB9834E4176CFDB89B5B1 /* Frameworks */ = {
@@ -253,8 +270,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35F4B7F72313CDE200AAA1AC /* ThoughtCell.swift in Sources */,
+				35F4B7FC2313DEB000AAA1AC /* DataService.swift in Sources */,
 				3571C3782312782700074E26 /* AddThoughtVC.swift in Sources */,
 				3571C3612312608400074E26 /* MainVC.swift in Sources */,
+				35F4B7F92313D1AF00AAA1AC /* Thought.swift in Sources */,
 				3571C35F2312608400074E26 /* AppDelegate.swift in Sources */,
 				3571C37A2312964900074E26 /* Constants.swift in Sources */,
 			);

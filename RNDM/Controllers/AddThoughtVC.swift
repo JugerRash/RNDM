@@ -31,19 +31,13 @@ class AddThoughtVC: UIViewController {
     //Actions -:
     @IBAction func postBtnPressed(_ sender : Any){
         guard let userName = usernameTxtField.text else { return }
-        Firebase.Firestore.firestore().collection(THOUGHT_REF).addDocument(data: [
-            CATEGORY_THOUGHT : selectedCategory,
-            NUM_COMMENTS : 0,
-            NUM_LIKES : 0,
-            THOUGHT_TXT : thoughtTxtView.text!,
-            TIMESTAMP : FieldValue.serverTimestamp(),
-            USERNAME : userName] , completion: { (error) in
-                if let error = error {
-                    debugPrint("Adding document Faild cuz \(error)")
-                }else {
-                    self.navigationController?.popViewController(animated: true)
-                }
-            })
+        guard let thoughtTxt = thoughtTxtView.text else { return }
+        DataService.instance.addCollection(username: userName, thoughtTxt: thoughtTxt, selectedCategory: selectedCategory) { (success) in
+            if success {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+
         
     }
     @IBAction func categorySegmentChanged(_ sender : Any){

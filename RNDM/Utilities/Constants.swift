@@ -26,3 +26,5 @@ let THOUGHT_TXT = "thoughtTxt"
 let TIMESTAMP = "timeStamp"
 let USERNAME = "username"
 
+// Cells -:
+let THOUGHT_CELL = "thoughtCell"
