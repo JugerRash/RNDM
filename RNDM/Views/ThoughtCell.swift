@@ -16,14 +16,23 @@ class ThoughtCell: UITableViewCell {
     @IBOutlet private weak var thoughtLbl : UILabel!
     @IBOutlet private weak var likeImg : UIImageView!
     @IBOutlet private weak var likesNumberLbl : UILabel!
+    //Variables -:
+    private var thought : Thought!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let tap = UITapGestureRecognizer(target: self, action: #selector(likesImgTapped(_:)))
+        likeImg.addGestureRecognizer(tap)
+        likeImg.isUserInteractionEnabled = true
+        
     }
 
     //Functions -:
+    @objc func likesImgTapped(_ sender : UITapGestureRecognizer){
+        DataService.instance.increaseNumOfLikes(thought: thought)
+    }
     func configureCell(thought : Thought){
+        self.thought = thought
         self.usernameLbl.text = thought.username
         self.thoughtLbl.text = thought.thoughtTxt
         self.likesNumberLbl.text = String(describing: thought.numLikes!)
