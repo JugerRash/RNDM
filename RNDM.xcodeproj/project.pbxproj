@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35152EAF2315668B00B99C0A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35152EAE2315668A00B99C0A /* LoginVC.swift */; };
+		35152EB1231567F700B99C0A /* CreateUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35152EB0231567F700B99C0A /* CreateUserVC.swift */; };
 		3571C35F2312608400074E26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3571C35E2312608400074E26 /* AppDelegate.swift */; };
 		3571C3612312608400074E26 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3571C3602312608400074E26 /* MainVC.swift */; };
 		3571C3642312608400074E26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3571C3622312608400074E26 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35152EAE2315668A00B99C0A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		35152EB0231567F700B99C0A /* CreateUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserVC.swift; sourceTree = "<group>"; };
 		3571C35B2312608400074E26 /* RNDM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RNDM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3571C35E2312608400074E26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3571C3602312608400074E26 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 			children = (
 				3571C3602312608400074E26 /* MainVC.swift */,
 				3571C3772312782700074E26 /* AddThoughtVC.swift */,
+				35152EAE2315668A00B99C0A /* LoginVC.swift */,
+				35152EB0231567F700B99C0A /* CreateUserVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -272,9 +278,11 @@
 			files = (
 				35F4B7F72313CDE200AAA1AC /* ThoughtCell.swift in Sources */,
 				35F4B7FC2313DEB000AAA1AC /* DataService.swift in Sources */,
+				35152EAF2315668B00B99C0A /* LoginVC.swift in Sources */,
 				3571C3782312782700074E26 /* AddThoughtVC.swift in Sources */,
 				3571C3612312608400074E26 /* MainVC.swift in Sources */,
 				35F4B7F92313D1AF00AAA1AC /* Thought.swift in Sources */,
+				35152EB1231567F700B99C0A /* CreateUserVC.swift in Sources */,
 				3571C35F2312608400074E26 /* AppDelegate.swift in Sources */,
 				3571C37A2312964900074E26 /* Constants.swift in Sources */,
 			);
