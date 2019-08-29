@@ -28,3 +28,10 @@ let USERNAME = "username"
 
 // Cells -:
 let THOUGHT_CELL = "thoughtCell"
+
+//User collections
+let USERS_REF = "users"
+let CREATED_DATE = "createdDate"
+
+//Storyboards Identifiers
+let LOGIN_VC = "LoginVC"

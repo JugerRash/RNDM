@@ -8,4 +8,5 @@ target 'RNDM' do
   # Pods for RNDM
     pod 'Firebase/Analytics'
     pod 'Firebase/Firestore'
+    pod 'Firebase/Auth'
 end

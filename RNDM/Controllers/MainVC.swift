@@ -27,7 +27,17 @@ class MainVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setListener()
+        DataService.instance.setDidStateChangeListener { (isUserLoggedin) in
+            if !isUserLoggedin {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let loginVC = storyboard.instantiateViewController(withIdentifier: LOGIN_VC)
+                self.present(loginVC, animated: true, completion: nil)
+            }else {
+                self.setListener()
+            }
+        }
+        
+        
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -55,6 +65,11 @@ class MainVC: UIViewController {
         DataService.instance.removeThoughtListener()
         setListener()
         
+    }
+    @IBAction func logoutBarBtnPressed(_ sender: Any) {
+        DataService.instance.logoutUser { (isUserLoggedout) in
+            //Nothing to do here :)
+        }
     }
     
 }

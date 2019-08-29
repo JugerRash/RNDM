@@ -122,6 +122,11 @@
                         <barButtonItem title="Item" id="S77-FT-cN9"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="RNDM" id="dFP-vq-9ja">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="9wQ-a3-Jfj">
+                            <connections>
+                                <action selector="logoutBarBtnPressed:" destination="BYZ-38-t0r" id="LMj-Fm-EOL"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="addThoughtIcon" id="Gga-2x-7lG">
                             <color key="tintColor" red="0.96078431369999995" green="0.50980392159999999" blue="0.047058823530000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                             <connections>
@@ -226,7 +231,7 @@
         <!--LoginVC-->
         <scene sceneID="OTB-GL-UOy">
             <objects>
-                <viewController id="YKe-DL-ChA" customClass="LoginVC" customModule="RNDM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="YKe-DL-ChA" customClass="LoginVC" customModule="RNDM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4IP-OO-sao">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -284,7 +289,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="signupBtnPressed:" destination="YKe-DL-ChA" eventType="touchUpInside" id="X4s-ML-67c"/>
+                                    <segue destination="oK1-Z7-r6B" kind="show" id="ysb-81-SZo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -309,7 +314,7 @@
                         <outlet property="emailTxtField" destination="tal-2x-YiD" id="YXc-fz-TI0"/>
                         <outlet property="loginBtn" destination="zQ4-Sh-ryo" id="MLP-5D-Go1"/>
                         <outlet property="passwordTxtField" destination="jgY-un-iSJ" id="6Iv-xp-q9Z"/>
-                        <outlet property="signupBtn" destination="K0z-sO-eqv" id="2sD-Sc-bDl"/>
+                        <outlet property="signupBtn" destination="K0z-sO-eqv" id="jgp-ZN-5f9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYi-a0-kAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -352,7 +357,7 @@
                                     <constraint firstAttribute="width" constant="150" id="hNT-uf-xn9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="Create User">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>

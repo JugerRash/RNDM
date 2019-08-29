@@ -23,9 +23,12 @@ class LoginVC: UIViewController {
     }
     //Actions -:
     @IBAction func loginBtnPressed(_ sender : Any) {
-        
-    }
-    @IBAction func signupBtnPressed(_ sender : Any) {
-        
+        guard let email = emailTxtField.text ,
+            let password = passwordTxtField.text else { return }
+        DataService.instance.loginUser(forEmail: email, andPassword: password) { (success) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 }

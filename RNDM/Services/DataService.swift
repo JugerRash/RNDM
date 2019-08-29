@@ -8,11 +8,13 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 class DataService {
     //Variables -:
     static let instance = DataService()
     private var thoughtListener : Firebase.ListenerRegistration!
+    private var authListenerHandler : AuthStateDidChangeListenerHandle? // this just to be aware id the user logged in or not
     //Functions -:
     func addCollection(username : String , thoughtTxt : String , selectedCategory : String , handler : @escaping (_ addCollectionCompleted : Bool ) -> ()){
      
@@ -116,8 +118,71 @@ class DataService {
         
     }
     
+    func createUser(forEmail email : String ,andPassword password: String , andUserName username : String , handler : @escaping (_ createUserCompleted : Bool) -> ()){
+        Auth.auth().createUser(withEmail: email, password: password) { (userData, error) in
+            if let error = error {
+                debugPrint("Error creating user : \(error.localizedDescription)")
+            }
+            
+            let changeRequest = userData?.user.createProfileChangeRequest()
+            changeRequest?.displayName = username
+            changeRequest?.commitChanges(completion: { (error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                }
+            })
+            
+            guard let userId = userData?.user.uid else { return }
+            Firestore.firestore().collection(USERS_REF).document(userId).setData([
+                USERNAME : username ,
+                CREATED_DATE : FieldValue.serverTimestamp()
+                ], completion: { (error) in
+                    if let error = error {
+                        debugPrint(error.localizedDescription)
+                        handler(false)
+                    }else {
+                        handler(true)
+                    }
+            })
+            
+        }
+    }
+    
+    func loginUser(forEmail email : String , andPassword password : String , handler : @escaping (_ loginCompleted : Bool) -> ()){
+        Auth.auth().signIn(withEmail: email, password: password) { (authData, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                handler(false)
+            }else {
+                handler(true)
+            }
+        }
+    }
+    func setDidStateChangeListener(handler : @escaping (_ isUserLoggedin : Bool) -> ()) {
+        authListenerHandler = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            if user == nil {
+                handler(false)
+            }else {
+                handler(true)
+            }
+        })
+    }
+    
+    func logoutUser(handler : @escaping (_ isUserLoggedout : Bool) -> ()){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            handler(true)
+        }catch let signoutError as NSError {
+            debugPrint("Error signing out : \(signoutError.localizedDescription)")
+            handler(false)
+        }
+    }
+    
     func removeThoughtListener(){
+        if thoughtListener != nil {
         thoughtListener.remove()
+        }
     }
     
 }

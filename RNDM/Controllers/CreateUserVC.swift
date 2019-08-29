@@ -24,9 +24,17 @@ class CreateUserVC: UIViewController {
     }
     //Actions -:
     @IBAction func createUserBtnPressed(_ sender : Any ){
+        guard let email = emailTxtField.text ,
+              let password = passwordTxtField.text ,
+            let username = usernameTxtField.text else { return }
+        DataService.instance.createUser(forEmail: email, andPassword: password, andUserName: username) { (success) in
+            if success {
+             self.dismiss(animated: true, completion: nil)
+            }
+        }
         
     }
     @IBAction func cancelBtnPressed(_ sender : Any) {
-        
+        dismiss(animated: true, completion: nil)
     }
 }
