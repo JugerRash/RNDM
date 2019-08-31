@@ -19,19 +19,26 @@ enum ThoughtCategory : String {
 
 //Document Dicitionary
 let THOUGHT_REF = "thoughts"
+let COMMENTS_REF = "comments"
+
 let CATEGORY_THOUGHT = "categoryThought"
 let NUM_COMMENTS = "numComments"
 let NUM_LIKES = "numLikes"
 let THOUGHT_TXT = "thoughtTxt"
 let TIMESTAMP = "timeStamp"
 let USERNAME = "username"
+let COMMENT_TXT = "commentTxt"
 
 // Cells -:
 let THOUGHT_CELL = "thoughtCell"
+let COMMENT_CELL = "commentCell"
 
-//User collections
+//User collections -:
 let USERS_REF = "users"
 let CREATED_DATE = "createdDate"
 
-//Storyboards Identifiers
+//Storyboards Identifiers -:
 let LOGIN_VC = "LoginVC"
+let COMMENTS_VC = "CommentsVC"
+//Segues Identifier -: 
+let TO_COMMENTS_SEGUE = "toComments"

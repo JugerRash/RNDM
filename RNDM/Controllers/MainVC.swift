@@ -84,5 +84,17 @@ extension MainVC : UITableViewDelegate , UITableViewDataSource {
         cell.configureCell(thought: thoughts[indexPath.row])
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: TO_COMMENTS_SEGUE, sender: thoughts[indexPath.row])
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == TO_COMMENTS_SEGUE {
+            if let destinationVC = segue.destination as? CommentsVC {
+                if let thought = sender as? Thought {
+                    destinationVC.thought = thought 
+                }
+            }
+        }
+    }
 }
 

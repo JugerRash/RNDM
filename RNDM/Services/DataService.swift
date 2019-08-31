@@ -15,6 +15,7 @@ class DataService {
     static let instance = DataService()
     private var thoughtListener : Firebase.ListenerRegistration!
     private var authListenerHandler : AuthStateDidChangeListenerHandle? // this just to be aware id the user logged in or not
+    private var thoughtRef : DocumentReference!
     //Functions -:
     func addCollection(username : String , thoughtTxt : String , selectedCategory : String , handler : @escaping (_ addCollectionCompleted : Bool ) -> ()){
      
@@ -183,6 +184,45 @@ class DataService {
         if thoughtListener != nil {
         thoughtListener.remove()
         }
+    }
+    func addNewComment(thought : Thought, username : String , commentTxt : String ,handler : @escaping (_ addNewCommentCompleted : Bool) -> ()){
+        //we will use transaction cuz we need to write and read multiple things so we have to use transaction and u have to be careful the transaction will fail if the user is offline and u have to read first and then write :)
+        thoughtRef = Firestore.firestore().collection(THOUGHT_REF).document(thought.documentId)
+        Firestore.firestore().runTransaction({ (transaction, error) -> Any? in
+            let thoughtDocument : DocumentSnapshot
+            
+            do {
+                try thoughtDocument = transaction.getDocument(Firestore.firestore().collection(THOUGHT_REF).document(thought.documentId))
+            } catch let error as NSError{
+                debugPrint(error.localizedDescription)
+                handler(false)
+                return nil
+            }
+            guard let oldNumberComment = thoughtDocument.data()![NUM_COMMENTS] as? Int else {
+                return nil
+            }
+            
+            transaction.updateData([NUM_COMMENTS : oldNumberComment + 1 ], forDocument: self.thoughtRef)
+            let newCommentRef = Firestore.firestore().collection(THOUGHT_REF).document(thought.documentId).collection(COMMENTS_REF).document()//create new document with auto id
+            transaction.setData([COMMENT_TXT : commentTxt ,
+                                 TIMESTAMP : FieldValue.serverTimestamp() ,
+                                 USERNAME : username
+                                 ], forDocument: newCommentRef)
+            
+            
+            return nil
+        }) { (object, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                handler(false)
+            }else {
+                handler(true)
+            }
+        }
+        
+    }
+    func getCurrentUsername() -> String?{
+        return Auth.auth().currentUser?.displayName ?? nil
     }
     
 }
