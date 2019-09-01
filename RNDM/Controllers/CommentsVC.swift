@@ -28,14 +28,27 @@ class CommentsVC: UIViewController {
         if let name = DataService.instance.getCurrentUsername() {
             username = name
         }
+        addCommentView.bindtoKeyboard()
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DataService.instance.getAllComments(thought: thought) { (returnedCommentsArray) in
+            self.comments = returnedCommentsArray
+            self.tableView.reloadData()
+        }
+        
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        DataService.instance.removeCommentListener()
+    }
     //Actions -:
     @IBAction func addCommentBtnPressed(_ sender : Any ){
         guard let commentTxt = commentTxtField.text else { return }
         DataService.instance.addNewComment(thought : thought ,username : username, commentTxt: commentTxt) { (success) in
             if success {
                 self.commentTxtField.text = ""
+                self.commentTxtField.resignFirstResponder()
             }
         }
     }

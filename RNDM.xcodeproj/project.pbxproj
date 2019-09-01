@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3514FE26231C10EB00656168 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3514FE25231C10EA00656168 /* UIViewExt.swift */; };
 		35152EAF2315668B00B99C0A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35152EAE2315668A00B99C0A /* LoginVC.swift */; };
 		35152EB1231567F700B99C0A /* CreateUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35152EB0231567F700B99C0A /* CreateUserVC.swift */; };
 		3521FA9D231A532F00FDBD5B /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3521FA9C231A532F00FDBD5B /* CommentsVC.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3514FE25231C10EA00656168 /* UIViewExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExt.swift; path = "../../../../../../../Volumes/VMware Shared Folders/iosShared/UIViewExt.swift"; sourceTree = "<group>"; };
 		35152EAE2315668A00B99C0A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		35152EB0231567F700B99C0A /* CreateUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserVC.swift; sourceTree = "<group>"; };
 		3521FA9C231A532F00FDBD5B /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		3571C37523126BDC00074E26 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3514FE25231C10EA00656168 /* UIViewExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3514FE26231C10EB00656168 /* UIViewExt.swift in Sources */,
 				35F4B7F72313CDE200AAA1AC /* ThoughtCell.swift in Sources */,
 				35F4B7FC2313DEB000AAA1AC /* DataService.swift in Sources */,
 				35152EAF2315668B00B99C0A /* LoginVC.swift in Sources */,

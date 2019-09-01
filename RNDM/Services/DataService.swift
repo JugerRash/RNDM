@@ -14,6 +14,7 @@ class DataService {
     //Variables -:
     static let instance = DataService()
     private var thoughtListener : Firebase.ListenerRegistration!
+    private var commentsListener : Firebase.ListenerRegistration!
     private var authListenerHandler : AuthStateDidChangeListenerHandle? // this just to be aware id the user logged in or not
     private var thoughtRef : DocumentReference!
     //Functions -:
@@ -110,6 +111,28 @@ class DataService {
         }
     }
     }
+    func getAllComments(thought : Thought,handler : @escaping (_ returnedCommentsArray : [Comment]) -> ()){
+        commentsListener = Firestore.firestore().collection(THOUGHT_REF).document(thought.documentId).collection(COMMENTS_REF).order(by: TIMESTAMP, descending: false).addSnapshotListener({ (documentSnapshot, error) in
+            if error != nil {
+                debugPrint("Could not fetch all the comments : \(error!.localizedDescription)")
+                handler([Comment]())
+            }else {
+                guard let snap = documentSnapshot else { return }
+                var commentsArray = [Comment]()
+                for document in snap.documents {
+                    let data = document.data()
+                    let username = data[USERNAME] as? String ?? "Anonymous"
+                    let timestamp = data[TIMESTAMP] as? Date ?? Date()
+                    let commentTxt = data[COMMENT_TXT] as? String ?? ""
+                    
+                    let newComment = Comment(username: username, timestamp: timestamp, commentTxt: commentTxt)
+                    commentsArray.append(newComment)
+                }
+                handler(commentsArray)
+            }
+        })
+    }
+    
     func increaseNumOfLikes(thought : Thought){
         //Method 1
         Firestore.firestore().collection(THOUGHT_REF).document(thought.documentId).setData([NUM_LIKES : thought.numLikes + 1 ], merge: true)
@@ -183,6 +206,11 @@ class DataService {
     func removeThoughtListener(){
         if thoughtListener != nil {
         thoughtListener.remove()
+        }
+    }
+    func removeCommentListener(){
+        if commentsListener != nil {
+            commentsListener.remove()
         }
     }
     func addNewComment(thought : Thought, username : String , commentTxt : String ,handler : @escaping (_ addNewCommentCompleted : Bool) -> ()){
