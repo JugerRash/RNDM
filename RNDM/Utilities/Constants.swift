@@ -28,6 +28,7 @@ let THOUGHT_TXT = "thoughtTxt"
 let TIMESTAMP = "timeStamp"
 let USERNAME = "username"
 let COMMENT_TXT = "commentTxt"
+let USER_ID = "userId"
 
 // Cells -:
 let THOUGHT_CELL = "thoughtCell"
@@ -42,3 +43,4 @@ let LOGIN_VC = "LoginVC"
 let COMMENTS_VC = "CommentsVC"
 //Segues Identifier -: 
 let TO_COMMENTS_SEGUE = "toComments"
+let TO_EDIT_COMMENT = "toEditComment"

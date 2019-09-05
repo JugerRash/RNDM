@@ -13,7 +13,6 @@ class AddThoughtVC: UIViewController {
     
     //Outlets -:
     @IBOutlet weak var categorySegment : UISegmentedControl!
-    @IBOutlet weak var usernameTxtField : UITextField!
     @IBOutlet weak var thoughtTxtView : UITextView!
     @IBOutlet weak var postBtn : UIButton!
     
@@ -30,9 +29,8 @@ class AddThoughtVC: UIViewController {
     
     //Actions -:
     @IBAction func postBtnPressed(_ sender : Any){
-        guard let userName = usernameTxtField.text else { return }
         guard let thoughtTxt = thoughtTxtView.text else { return }
-        DataService.instance.addCollection(username: userName, thoughtTxt: thoughtTxt, selectedCategory: selectedCategory) { (success) in
+        DataService.instance.addCollection(thoughtTxt: thoughtTxt, selectedCategory: selectedCategory) { (success) in
             if success {
                 self.navigationController?.popViewController(animated: true)
             }

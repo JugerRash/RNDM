@@ -8,7 +8,8 @@
 
 import UIKit
 
-class MainVC: UIViewController {
+class MainVC: UIViewController  , ThoughtDelegate {
+
     
     //Outlets -:
     @IBOutlet private weak var segmentControl : UISegmentedControl!
@@ -36,14 +37,27 @@ class MainVC: UIViewController {
                 self.setListener()
             }
         }
-        
-        
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         DataService.instance.removeThoughtListener()
     }
     //Functions -:
+    func thoughtOptionsMenuTapped(thought: Thought) {
+        let alert = UIAlertController(title: "Delete", message: "Do you want to Delete your thought?", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .default) { (action) in
+            DataService.instance.deleteThought(thought: thought, handler: { (deleteCompleted) in
+                if deleteCompleted {
+                    alert.dismiss(animated: true, completion: nil)
+                }
+            })
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     func setListener(){
         DataService.instance.getAllDocuments(selectedCategory: selectedCategory) { (returnedThoghtsArray) in
             self.thoughts = returnedThoghtsArray
@@ -81,7 +95,7 @@ extension MainVC : UITableViewDelegate , UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: THOUGHT_CELL, for: indexPath) as? ThoughtCell else { return UITableViewCell() }
-        cell.configureCell(thought: thoughts[indexPath.row])
+        cell.configureCell(thought: thoughts[indexPath.row], delegate: self)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

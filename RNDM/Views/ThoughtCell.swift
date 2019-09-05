@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ThoughtDelegate {
+    func thoughtOptionsMenuTapped(thought : Thought)
+}
+
 class ThoughtCell: UITableViewCell {
 
     //Outlets -:
@@ -18,23 +22,28 @@ class ThoughtCell: UITableViewCell {
     @IBOutlet private weak var likesNumberLbl : UILabel!
     @IBOutlet private weak var commentsImg : UIImageView!
     @IBOutlet private weak var commentsNumberLbl : UILabel!
+    @IBOutlet private weak var optionsMenuImg : UIImageView!
+    
     //Variables -:
     private var thought : Thought!
+    private var delegate : ThoughtDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         let tap = UITapGestureRecognizer(target: self, action: #selector(likesImgTapped(_:)))
         likeImg.addGestureRecognizer(tap)
         likeImg.isUserInteractionEnabled = true
-        
+        optionsMenuImg.isUserInteractionEnabled = true
     }
 
     //Functions -:
     @objc func likesImgTapped(_ sender : UITapGestureRecognizer){
         DataService.instance.increaseNumOfLikes(thought: thought)
     }
-    func configureCell(thought : Thought){
+    func configureCell(thought : Thought , delegate : ThoughtDelegate){
         self.thought = thought
+        optionsMenuImg.isHidden = true
+        self.delegate = delegate
         self.usernameLbl.text = thought.username
         self.thoughtLbl.text = thought.thoughtTxt
         self.likesNumberLbl.text = String(describing: thought.numLikes!)
@@ -43,6 +52,14 @@ class ThoughtCell: UITableViewCell {
         formatter.dateFormat = "MMM d , hh:mm"
         let timestamp = formatter.string(from: thought.timestamp)
         self.timestampLbl.text = timestamp
+        
+        if thought.userId == DataService.instance.getCurrentUserId() {
+            optionsMenuImg.isHidden = false
+            let tap = UITapGestureRecognizer(target: self, action: #selector(thoughtOptionsMenuTapped(_:)))
+            optionsMenuImg.addGestureRecognizer(tap)
+        }
     }
-
+    @objc func thoughtOptionsMenuTapped(_ gestureRecognizer : UITapGestureRecognizer){
+        delegate?.thoughtOptionsMenuTapped(thought: thought)
+    }
 }
